@@ -205,7 +205,7 @@ $("bSend").onclick=function(){
   if(!WEBHOOK){m.textContent="Reporting isn't connected yet. Ask the admin to add the webhook.";return}
   $("bSend").disabled=true;m.textContent="Sending…";
   fetch(WEBHOOK,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({
-    username:"Staff Directory Reports",allowed_mentions:{parse:[]},
+    username:"ProTech Clerk",allowed_mentions:{parse:[]},
     embeds:[{title:$("bType").value+": "+$("bTool").value,description:d.slice(0,1500),color:0xc8a96a,fields:[{name:"Reported by",value:n.slice(0,100)}],timestamp:new Date().toISOString()}]})})
   .then(function(r){if(!r.ok)throw 0;m.textContent="Report sent. Thank you.";$("bText").value="";setTimeout(function(){bug.close()},1200)})
   .catch(function(){m.textContent="Couldn't send the report. Please try again.";$("bSend").disabled=false});
